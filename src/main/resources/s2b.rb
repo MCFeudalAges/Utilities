@@ -61,7 +61,7 @@ Dir.mkdir(NAME_IN) if ! File::exists?(NAME_IN)
 Dir.mkdir(NAME_OUT) if ! File::exists?(NAME_OUT)
 
 # Find all the files in the in-folder
-@filenames = Dir.glob(NAME_IN + "/*.*")
+#@filenames = Dir.glob(NAME_IN + "/*.*")
 
 # Handle a file according to our rules
 def handleFileName(filename)
@@ -148,7 +148,8 @@ end
 def convert
 	print "== START ==\n"
 	## For each filename
-	@filenames.each do |filename|
+	filenames = Dir.glob(NAME_IN + "/*.*")
+	filenames.each do |filename|
 		handleFileName(filename)
 	end
 	print "== DONE ==\n"
