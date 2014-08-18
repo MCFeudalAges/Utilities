@@ -1,0 +1,21 @@
+main: org.nowireless.utilities.Utilities
+name: Utilities
+version: 1.0.0
+authors: [nowireless]
+description: Utilities is a collection of useful Utilities and such, what were you expecting?.
+depend: [MassiveCore]
+permissions:
+  util.s2b: {description: Runs the s2b ruby script for items that begin with bo2, default: false}
+  util.runtime: {description: Displays current JVM runtime info, default: false}
+  util.chat: {description: Allows the console to chat with players, default: false}
+  util.*:
+   default: false
+   children:
+     util.s2b: true
+     util.runtime: true
+     util.chat: true
+  util.kit.operator:
+   default: op
+   children:
+     util.*: true
+  
