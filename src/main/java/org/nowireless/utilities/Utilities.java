@@ -15,13 +15,11 @@ public class Utilities extends MassivePlugin {
 	
 	@Override
 	public void onEnable() {
-		if(!this.preEnable()) return;
+		if(!this.onEnablePre()) return;
 		
 		S2B.init();
 		
-		this.outerCmdUtil = new CmdUtil();
-		this.outerCmdUtil.register();
-		
-		this.postEnable();
+		this.activate(CmdUtil.class);
+		this.onEnablePost();;
 	}
 }
